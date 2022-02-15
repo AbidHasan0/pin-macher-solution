@@ -46,7 +46,7 @@ function verifyPin() {
    } else {
       const faillError = document.getElementById('notify-fail')
       successMessage.style.display = 'none';
-      faillError.style.display = 'black';
+      faillError.style.display = 'block';
 
    }
 }
