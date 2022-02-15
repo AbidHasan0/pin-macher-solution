@@ -18,9 +18,35 @@ function generatePin() {
 document.getElementById("key-pad").addEventListener('click', function (event) {
    const number = event.target.innerText;
    const calcInput = document.getElementById("type-numbers");
-   const previousCalc = calcInput.value;
-   const newCalc = previousCalc + number;
-   calcInput.value = newCalc;
+   if (isNaN(number)) {
+      if (number == 'C') {
+         calcInput.value = '';
+
+      }
+   }
+   else {
+      const previousNumber = calcInput.value;
+      const newNumber = previousNumber + number;
+      calcInput.value = newNumber;
+   }
 
 
 });
+
+function verifyPin() {
+   const pin = document.getElementById('display-pin').value;
+   const typedNumber = document.getElementById('type-numbers').value;
+   const successMessage = document.getElementById('notify-success')
+   const faillError = document.getElementById('notify-fail')
+
+   if (pin == typedNumber) {
+      const successMessage = document.getElementById('notify-success')
+      faillError.style.display = 'none';
+      successMessage.style.display = 'block';
+   } else {
+      const faillError = document.getElementById('notify-fail')
+      successMessage.style.display = 'none';
+      faillError.style.display = 'block';
+
+   }
+}
